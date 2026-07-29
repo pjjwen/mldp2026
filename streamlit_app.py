@@ -14,8 +14,13 @@ st.markdown(
     <style>
 
     .stApp {
-        background-color: #f6f8fb;
+        background-color: #F8FAFC;
     }
+
+
+    /* =========================
+    GENERAL TEXT
+    ========================= */
 
     label,
     p,
@@ -24,91 +29,193 @@ st.markdown(
     h3,
     h4,
     h5,
-    h6,
-    [data-testid="stWidgetLabel"] {
+    h6 {
         color: #111827 !important;
         font-weight: 600;
     }
 
+    /* Streamlit widget labels */
+    [data-testid="stWidgetLabel"],
+    [data-testid="stWidgetLabel"] p {
+        color: #111827 !important;
+    }
+
+    /* =========================
+    INPUT TEXT
+    ========================= */
+
     input {
+        color: #FFFFFF !important;
+    }
+
+
+    div[data-baseweb="select"] {
+        color: #111827 !important;
+    }
+
+
+    /* =========================
+    PAGE LAYOUT
+    ========================= */
+
+    .main .block-container {
+        max-width: 1100px;
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+    }
+
+
+    /* =========================
+    HERO HEADER
+    ========================= */
+
+    .hero-card {
+        background: linear-gradient(135deg, #8b1e3f, #c93f62);
+        color: white;
+        padding: 2rem;
+        border-radius: 20px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 8px 24px rgba(139, 30, 63, 0.18);
+    }
+
+
+    .hero-title {
+        font-size: 2.4rem;
+        font-weight: 750;
+        margin-bottom: 0.4rem;
         color: white !important;
     }
 
-    div[data-baseweb="select"] {
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+        opacity: 0.95;
+        margin-bottom: 0;
         color: white !important;
-    }  
+    }
 
-        .main .block-container {
-            max-width: 1100px;
-            padding-top: 2rem;
-            padding-bottom: 3rem;
-        }
 
-        .hero-card {
-            background: linear-gradient(135deg, #8b1e3f, #c93f62);
-            color: white;
-            padding: 2rem;
-            border-radius: 20px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 8px 24px rgba(139, 30, 63, 0.18);
-        }
+    /* =========================
+    SIDEBAR
+    ========================= */
 
-        .hero-title {
-            font-size: 2.4rem;
-            font-weight: 750;
-            margin-bottom: 0.4rem;
-        }
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3 {
+        color: white !important;
+    }
 
-        .hero-subtitle {
-            font-size: 1.05rem;
-            opacity: 0.95;
-            margin-bottom: 0;
-        }
 
-        .info-card {
-            background-color: white;
-            padding: 1.2rem;
-            border-radius: 16px;
-            border: 1px solid #e6e9ef;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-            margin-bottom: 1rem;
-        }
+    [data-testid="stSidebar"] .stMarkdown {
+        color: white !important;
+    }
 
-        .result-positive {
-            background-color: #fff1f3;
-            border-left: 6px solid #c93f62;
-            padding: 1.3rem;
-            border-radius: 12px;
-            margin-top: 1rem;
-        }
 
-        .result-negative {
-            background-color: #edf9f1;
-            border-left: 6px solid #2e8b57;
-            padding: 1.3rem;
-            border-radius: 12px;
-            margin-top: 1rem;
-        }
+    /* Sidebar title */
+    [data-testid="stSidebar"] h1 {
+        color: #FFD1DC !important;
+    }
 
-        div.stButton > button,
-        div.stFormSubmitButton > button {
-            width: 100%;
-            border-radius: 10px;
-            font-weight: 650;
-            min-height: 3rem;
-        }
 
-        [data-testid="stMetric"] {
-            background-color: white;
-            padding: 1rem;
-            border: 1px solid #e6e9ef;
-            border-radius: 14px;
-        }
+    /* =========================
+    INFO CARDS
+    ========================= */
 
-        .small-note {
-            color: #667085;
-            font-size: 0.9rem;
-        }
+    .info-card {
+        background-color: white;
+        padding: 1.2rem;
+        border-radius: 16px;
+        border: 1px solid #e6e9ef;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+        margin-bottom: 1rem;
+    }
+
+
+    .info-card:hover {
+        transform: translateY(-3px);
+        transition: 0.2s ease;
+    }
+
+
+    /* =========================
+    RESULT BOXES
+    ========================= */
+
+    .result-positive {
+        background-color: #FEF2F2;
+        border-left: 6px solid #DC2626;
+        padding: 1.3rem;
+        border-radius: 12px;
+        margin-top: 1rem;
+    }
+
+
+    .result-negative {
+        background-color: #F0FDF4;
+        border-left: 6px solid #16A34A;
+        padding: 1.3rem;
+        border-radius: 12px;
+        margin-top: 1rem;
+    }
+
+
+    /* =========================
+    BUTTONS
+    ========================= */
+
+    div.stButton > button,
+    div.stFormSubmitButton > button {
+
+        width: 100%;
+        border-radius: 12px;
+        font-weight: 700;
+        min-height: 3rem;
+        color: white !important;
+
+    }
+
+
+    /* =========================
+    METRIC CARD
+    ========================= */
+
+    [data-testid="stMetric"] {
+
+        background-color: white;
+        padding: 1rem;
+        border: 1px solid #e6e9ef;
+        border-radius: 14px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
+    }
+
+
+    /* =========================
+    SMALL NOTES
+    ========================= */
+
+    .small-note {
+
+        color: #667085;
+        font-size: 0.9rem;
+    }
+
+
+    div[data-baseweb="input"] input {
+        color: white !important;
+    }
+
+    /* Fix select dropdown text */
+    div[data-baseweb="select"] span {
+        color: white !important;
+    }
+
+    /* Fix dropdown selected value */
+    div[data-baseweb="select"] > div {
+        color: white !important;
+    }
+
     </style>
     """,
     unsafe_allow_html=True
@@ -329,10 +436,21 @@ with st.form("prediction_form"):
         "I confirm that the entered information has been checked."
     )
 
-    submitted = st.form_submit_button(
-        "Analyse heart disease risk",
-        type="primary"
-    )
+    col_submit, col_reset = st.columns(2)
+
+    with col_submit:
+        submitted = st.form_submit_button(
+            "Analyse heart disease risk",
+            type="primary"
+        )
+
+    with col_reset:
+        reset = st.form_submit_button(
+            "Reset"
+        )
+
+    if reset:
+        st.rerun()
 
 
     if submitted:
@@ -431,10 +549,12 @@ with st.form("prediction_form"):
                     "The model predicts that the patient is unlikely to have heart disease."
                 )
 
-            st.metric(
-                "Predicted probability of heart disease",
-                f"{probability * 100:.1f}%"
-            )
+            if probability < 0.3:
+                st.info("Low predicted risk based on model probability.")
+            elif probability < 0.7:
+                st.warning("Moderate predicted risk based on model probability.")
+            else:
+                st.error("High predicted risk based on model probability.")
 
 
         except Exception as error:
