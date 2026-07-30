@@ -248,11 +248,6 @@ with st.sidebar:
 
     st.divider()
 
-    st.warning(
-        "Educational demonstration only. This application does not replace "
-        "professional medical assessment."
-    )
-
 #header
 st.markdown(
     """
