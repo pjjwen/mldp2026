@@ -17,7 +17,10 @@ st.markdown(
         background-color: #F8FAFC;
     }
 
-    #GENERAL TEXT
+
+    /* =========================
+    GENERAL TEXT
+    ========================= */
 
     label,
     p,
@@ -31,15 +34,16 @@ st.markdown(
         font-weight: 600;
     }
 
-    # Streamlit widget labels
+    /* Streamlit widget labels */
     [data-testid="stWidgetLabel"],
     [data-testid="stWidgetLabel"] p {
         color: #111827 !important;
     }
 
-    
-    #INPUT TEXT
-    
+    /* =========================
+    INPUT TEXT
+    ========================= */
+
     input {
         color: #FFFFFF !important;
     }
@@ -50,9 +54,9 @@ st.markdown(
     }
 
 
-    
-    #PAGE LAYOUT
-    
+    /* =========================
+    PAGE LAYOUT
+    ========================= */
 
     .main .block-container {
         max-width: 1100px;
@@ -61,8 +65,9 @@ st.markdown(
     }
 
 
-    
-    #HERO HEADER
+    /* =========================
+    HERO HEADER
+    ========================= */
 
     .hero-card {
         background: linear-gradient(135deg, #8b1e3f, #c93f62);
@@ -90,14 +95,15 @@ st.markdown(
     }
 
 
-    
-    #SIDEBAR 
+    /* =========================
+    SIDEBAR
+    ========================= */
 
     [data-testid="stSidebar"] p,
     [data-testid="stSidebar"] h1,
     [data-testid="stSidebar"] h2,
     [data-testid="stSidebar"] h3 {
-        color: #FFFFFF !important;
+        color: white !important;
     }
 
 
@@ -106,14 +112,15 @@ st.markdown(
     }
 
 
-    Sidebar title
+    /* Sidebar title */
     [data-testid="stSidebar"] h1 {
         color: #FFD1DC !important;
     }
 
 
-    
-    #INFO CARDS
+    /* =========================
+    INFO CARDS
+    ========================= */
 
     .info-card {
         background-color: white;
@@ -131,8 +138,9 @@ st.markdown(
     }
 
 
-    
-    #RESULT BOXES
+    /* =========================
+    RESULT BOXES
+    ========================= */
 
     .result-positive {
         background-color: #FEF2F2;
@@ -152,8 +160,9 @@ st.markdown(
     }
 
 
-    
-    #BUTTONS
+    /* =========================
+    BUTTONS
+    ========================= */
 
     div.stButton > button,
     div.stFormSubmitButton > button {
@@ -167,8 +176,9 @@ st.markdown(
     }
 
 
-    
-    #METRIC CARD
+    /* =========================
+    METRIC CARD
+    ========================= */
 
     [data-testid="stMetric"] {
 
@@ -181,8 +191,9 @@ st.markdown(
     }
 
 
-    
-    #SMALL NOTES
+    /* =========================
+    SMALL NOTES
+    ========================= */
 
     .small-note {
 
@@ -206,51 +217,6 @@ st.markdown(
     }
 
     </style>
-    """,
-    unsafe_allow_html=True
-)
-
-#sidebar styling
-with st.sidebar:
-    st.title("HeartCheck AI")
-
-    st.markdown(
-        """
-        This application uses a trained **Random Forest model** to estimate
-        whether a patient may have heart disease.
-        """
-    )
-
-    st.divider()
-
-    st.subheader("How to use")
-
-    st.markdown(
-        """
-        1. Enter the patient's details.
-        2. Check that the information is correct.
-        3. Select **Analyse heart disease risk**.
-        4. Review the prediction and probability.
-        """
-    )
-
-    st.divider()
-
-    st.warning(
-        "Educational demonstration only. This application does not replace "
-        "professional medical assessment."
-    )
-
-#header
-st.markdown(
-    """
-    <div class="hero-card">
-        <div class="hero-title">Heart Disease Risk Assessment</div>
-        <p class="hero-subtitle">
-            Enter patient information to receive an AI-assisted prediction
-            based on a trained Random Forest model.
-        </p>
-    </div>
     """,
     unsafe_allow_html=True
 )
