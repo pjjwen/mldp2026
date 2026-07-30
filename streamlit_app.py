@@ -166,13 +166,16 @@ st.markdown(
 
     div.stButton > button,
     div.stFormSubmitButton > button {
-
         width: 100%;
         border-radius: 12px;
         font-weight: 700;
         min-height: 3rem;
         color: white !important;
-        
+    }
+
+    div.stButton > button *,
+    div.stFormSubmitButton > button * {
+        color: white !important;
     }
 
 
