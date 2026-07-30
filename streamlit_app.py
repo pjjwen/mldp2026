@@ -297,7 +297,8 @@ categorical_columns = [
     "exang",
     "slope",
     "thal",
-    "age_group"
+    "age_group",
+    "chol_risk"
 ]
 
 st.subheader("Patient information")
