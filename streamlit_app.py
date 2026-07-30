@@ -107,7 +107,7 @@ st.markdown(
     }
 
 
-    #Sidebar title
+    Sidebar title
     [data-testid="stSidebar"] h1 {
         color: #FFD1DC !important;
     }
@@ -305,7 +305,7 @@ with st.form("prediction_form"):
             "Age",
             min_value=18,
             max_value=100,
-            value=0,
+            value=18,
             help="Patient's age in years."
         )
 
