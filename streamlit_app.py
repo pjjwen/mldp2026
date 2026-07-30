@@ -27,7 +27,7 @@ st.markdown(
     h4,
     h5,
     h6 {
-        color: #FFFFFF !important;
+        color: #111827 !important;
         font-weight: 600;
     }
 
@@ -40,7 +40,6 @@ st.markdown(
     
     #INPUT TEXT
     
-
     input {
         color: #FFFFFF !important;
     }
@@ -98,7 +97,7 @@ st.markdown(
     [data-testid="stSidebar"] h1,
     [data-testid="stSidebar"] h2,
     [data-testid="stSidebar"] h3 {
-        color: white !important;
+        color: #FFFFFF !important;
     }
 
 
