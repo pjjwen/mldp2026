@@ -17,10 +17,7 @@ st.markdown(
         background-color: #F8FAFC;
     }
 
-
-    /* =========================
-    GENERAL TEXT
-    ========================= */
+    #GENERAL TEXT
 
     label,
     p,
@@ -34,15 +31,15 @@ st.markdown(
         font-weight: 600;
     }
 
-    /* Streamlit widget labels */
+    # Streamlit widget labels
     [data-testid="stWidgetLabel"],
     [data-testid="stWidgetLabel"] p {
         color: #111827 !important;
     }
 
-    /* =========================
-    INPUT TEXT
-    ========================= */
+    
+    #INPUT TEXT
+    
 
     input {
         color: #FFFFFF !important;
@@ -54,9 +51,9 @@ st.markdown(
     }
 
 
-    /* =========================
-    PAGE LAYOUT
-    ========================= */
+    
+    #PAGE LAYOUT
+    
 
     .main .block-container {
         max-width: 1100px;
@@ -65,9 +62,8 @@ st.markdown(
     }
 
 
-    /* =========================
-    HERO HEADER
-    ========================= */
+    
+    #HERO HEADER
 
     .hero-card {
         background: linear-gradient(135deg, #8b1e3f, #c93f62);
@@ -95,9 +91,8 @@ st.markdown(
     }
 
 
-    /* =========================
-    SIDEBAR
-    ========================= */
+    
+    #SIDEBAR 
 
     [data-testid="stSidebar"] p,
     [data-testid="stSidebar"] h1,
@@ -112,15 +107,14 @@ st.markdown(
     }
 
 
-    /* Sidebar title */
+    #Sidebar title
     [data-testid="stSidebar"] h1 {
         color: #FFD1DC !important;
     }
 
 
-    /* =========================
-    INFO CARDS
-    ========================= */
+    
+    #INFO CARDS
 
     .info-card {
         background-color: white;
@@ -138,9 +132,8 @@ st.markdown(
     }
 
 
-    /* =========================
-    RESULT BOXES
-    ========================= */
+    
+    #RESULT BOXES
 
     .result-positive {
         background-color: #FEF2F2;
@@ -160,9 +153,8 @@ st.markdown(
     }
 
 
-    /* =========================
-    BUTTONS
-    ========================= */
+    
+    #BUTTONS
 
     div.stButton > button,
     div.stFormSubmitButton > button {
@@ -176,9 +168,8 @@ st.markdown(
     }
 
 
-    /* =========================
-    METRIC CARD
-    ========================= */
+    
+    #METRIC CARD
 
     [data-testid="stMetric"] {
 
@@ -191,9 +182,8 @@ st.markdown(
     }
 
 
-    /* =========================
-    SMALL NOTES
-    ========================= */
+    
+    #SMALL NOTES
 
     .small-note {
 
@@ -315,7 +305,7 @@ with st.form("prediction_form"):
             "Age",
             min_value=18,
             max_value=100,
-            value=50,
+            value=0,
             help="Patient's age in years."
         )
 
