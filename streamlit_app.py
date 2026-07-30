@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 
 st.set_page_config(
-    page_title="HeartCheck AI",
+    page_title="HeartCheck",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -172,7 +172,7 @@ st.markdown(
         font-weight: 700;
         min-height: 3rem;
         color: white !important;
-
+        
     }
 
 
@@ -459,18 +459,17 @@ with st.form("prediction_form"):
         if not confirm:
             validation_errors.append(
                 "Please confirm that the entered information has been checked."
-                )
+            )
 
         if chol == 0:
             validation_errors.append(
-            "Cholesterol cannot be zero. Please enter a valid measurement."
-                )
+                "Cholesterol cannot be zero. Please enter a valid measurement."
+            )
 
         if trestbps < 70:
             validation_errors.append(
                 "Resting blood pressure appears unusually low."
-                )
-
+            )
 
         if validation_errors:
             st.error("Please correct the following information:")
@@ -478,89 +477,89 @@ with st.form("prediction_form"):
             for error in validation_errors:
                 st.warning(error)
 
-    else:
-        try:
-            # EVERYTHING that can cause an error goes here
+        else:
+            try:
+                # Create age-group feature
+                if age < 40:
+                    age_group = "Below 40"
+                elif age < 50:
+                    age_group = "40-49"
+                elif age < 60:
+                    age_group = "50-59"
+                elif age < 70:
+                    age_group = "60-69"
+                else:
+                    age_group = "70 and above"
 
-            if age < 40:
-                age_group = "Below 40"
-            elif age < 50:
-                age_group = "40-49"
-            elif age < 60:
-                age_group = "50-59"
-            elif age < 70:
-                age_group = "60-69"
-            else:
-                age_group = "70 and above"
+                # Create cholesterol-risk feature
+                if chol <= 200:
+                    chol_risk = "Normal"
+                elif chol <= 240:
+                    chol_risk = "Borderline"
+                else:
+                    chol_risk = "High"
 
+                input_data = pd.DataFrame({
+                    "age": [age],
+                    "sex": [sex],
+                    "dataset": [dataset],
+                    "cp": [cp],
+                    "trestbps": [trestbps],
+                    "chol": [chol],
+                    "fbs": [fbs],
+                    "restecg": [restecg],
+                    "thalch": [thalch],
+                    "exang": [exang],
+                    "oldpeak": [oldpeak],
+                    "slope": [slope],
+                    "ca": [ca],
+                    "thal": [thal],
+                    "age_group": [age_group],
+                    "chol_risk": [chol_risk]
+                })
 
-            input_data = pd.DataFrame({
-                "age": [age],
-                "sex": [sex],
-                "dataset": [dataset],
-                "cp": [cp],
-                "trestbps": [trestbps],
-                "chol": [chol],
-                "fbs": [fbs],
-                "restecg": [restecg],
-                "thalch": [thalch],
-                "exang": [exang],
-                "oldpeak": [oldpeak],
-                "slope": [slope],
-                "ca": [ca],
-                "thal": [thal],
-                "age_group": [age_group]
-            })
+                input_data[numeric_columns] = num_imputer.transform(
+                    input_data[numeric_columns]
+                )
 
+                input_data[categorical_columns] = cat_imputer.transform(
+                    input_data[categorical_columns]
+                )
 
-            input_data[numeric_columns] = num_imputer.transform(
-                input_data[numeric_columns]
-            )
+                input_data = pd.get_dummies(
+                    input_data,
+                    columns=categorical_columns,
+                    drop_first=True,
+                    dtype=int
+                )
 
-            input_data[categorical_columns] = cat_imputer.transform(
-                input_data[categorical_columns]
-            )
+                input_data = input_data.reindex(
+                    columns=model_columns,
+                    fill_value=0
+                )
 
-            input_data = pd.get_dummies(
-                input_data,
-                columns=categorical_columns,
-                dtype=int
-            )
+                prediction = model.predict(input_data)[0]
+                probability = model.predict_proba(input_data)[0][1]
 
-            input_data = input_data.reindex(
-                columns=model_columns,
-                fill_value=0
-            )
+                st.subheader("Prediction result")
+                st.metric(
+                    "Predicted probability of heart disease",
+                    f"{probability:.1%}"
+                )
 
+                if prediction == 1:
+                    st.error(
+                        "The model predicts that the patient may have heart disease."
+                    )
+                else:
+                    st.success(
+                        "The model predicts that the patient is unlikely to have heart disease."
+                    )
 
-            prediction = model.predict(input_data)[0]
-            probability = model.predict_proba(input_data)[0][1]
-
-
-            # Result display
-            st.subheader("Prediction result")
-
-            if prediction == 1:
+            except Exception as error:
                 st.error(
-                    "The model predicts that the patient may have heart disease."
-                )
-            else:
-                st.success(
-                    "The model predicts that the patient is unlikely to have heart disease."
+                    "An unexpected error occurred while generating the prediction."
                 )
 
-            if probability < 0.3:
-                st.info("Low predicted risk based on model probability.")
-            elif probability < 0.7:
-                st.warning("Moderate predicted risk based on model probability.")
-            else:
-                st.error("High predicted risk based on model probability.")
-
-
-        except Exception as error:
-            st.error(
-                "An unexpected error occurred while generating the prediction."
-            )
-
-            with st.expander("Technical details"):
-                st.code(str(error))
+                with st.expander("Technical details"):
+                    st.code(str(error))
