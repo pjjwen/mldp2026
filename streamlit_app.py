@@ -118,9 +118,7 @@ st.markdown(
     }
 
 
-    /* =========================
-    INFO CARDS
-    ========================= */
+    /* INFO CARDS */
 
     .info-card {
         background-color: white;
@@ -138,9 +136,7 @@ st.markdown(
     }
 
 
-    /* =========================
-    RESULT BOXES
-    ========================= */
+    /* RESULT BOXES */
 
     .result-positive {
         background-color: #FEF2F2;
@@ -160,9 +156,7 @@ st.markdown(
     }
 
 
-    /* =========================
-    BUTTONS
-    ========================= */
+    /* BUTTONS */
 
     div.stButton > button,
     div.stFormSubmitButton > button {
@@ -178,10 +172,16 @@ st.markdown(
         color: white !important;
     }
 
+    /* Button hover effect */
+    div.stButton > button:hover,
+    div.stFormSubmitButton > button:hover {
+        background-color: #A62B4E !important;
+        border-color: #A62B4E !important;
+        color: white !important;
+        transition: all 0.2s ease;
+    }
 
-    /* =========================
-    METRIC CARD
-    ========================= */
+    /* METRIC CARD*/
 
     [data-testid="stMetric"] {
 
@@ -194,9 +194,7 @@ st.markdown(
     }
 
 
-    /* =========================
-    SMALL NOTES
-    ========================= */
+    /*SMALL NOTES*/
 
     .small-note {
 
