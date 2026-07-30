@@ -221,6 +221,51 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+#sidebar styling
+with st.sidebar:
+    st.title("HeartCheck AI")
+
+    st.markdown(
+        """
+        This application uses a trained **Random Forest model** to estimate
+        whether a patient may have heart disease.
+        """
+    )
+
+    st.divider()
+
+    st.subheader("How to use")
+
+    st.markdown(
+        """
+        1. Enter the patient's details.
+        2. Check that the information is correct.
+        3. Select **Analyse heart disease risk**.
+        4. Review the prediction and probability.
+        """
+    )
+
+    st.divider()
+
+    st.warning(
+        "Educational demonstration only. This application does not replace "
+        "professional medical assessment."
+    )
+
+#header
+st.markdown(
+    """
+    <div class="hero-card">
+        <div class="hero-title">Heart Disease Risk Assessment</div>
+        <p class="hero-subtitle">
+            Enter patient information to receive an AI-assisted prediction
+            based on a trained Random Forest model.
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 @st.cache_resource
 def load_saved_files():
     model = joblib.load("rf_model.pkl")
@@ -270,7 +315,7 @@ with st.form("prediction_form"):
             "Age",
             min_value=18,
             max_value=100,
-            value=18,
+            value=50,
             help="Patient's age in years."
         )
 
