@@ -27,7 +27,7 @@ st.markdown(
     h4,
     h5,
     h6 {
-        color: #111827 !important;
+        color: #FFFFFF !important;
         font-weight: 600;
     }
 
